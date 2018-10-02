@@ -4,10 +4,10 @@
 #Tip: click on a line and press "F8" to run the line of code
 
 #Step 1: Use a name no longer then five charactors all lowercase.  Your initials would work well if working in the same sub as others.
-$MonitoringHackName = 'yourinitialshere'
+$MonitoringHackName = 'adl'
 
 #Step 2: Create ResourceGroup after updating the location to one of your choice. Use get-AzureRmLocation to see a list
-New-AzureRMResourceGroup -Name $MonitoringHackName -Location 'East US'
+New-AzureRMResourceGroup -Name $MonitoringHackName -Location 'West Europe'
 $rg = get-AzureRmresourcegroup -Name $MonitoringHackName
 
 #Step 3: Create Key Vault and set flag to enable for template deployment with ARM

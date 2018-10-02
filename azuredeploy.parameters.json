@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "envPrefixName": {
-      "value": "enter a 5 charactor value here all lowercase"
+      "value": "adl"
     },
     "username": {
       "value": "vmadmin"
@@ -11,7 +11,7 @@
     "password": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+          "id": "/subscriptions/db88ecb1-2e92-4ad9-8a61-86c6bd7ae6e0/resourceGroups/adl/providers/Microsoft.KeyVault/vaults/adlMonitoringHackVault"
         },
         "secretName": "VMPassword"
       }
