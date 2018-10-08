@@ -14,7 +14,7 @@ $rg = get-AzureRmresourcegroup -Name $MonitoringHackName
 $MonitoringHackVaultName = $MonitoringHackName + 'MonitoringHackVault'
 New-AzureRmKeyVault -VaultName $MonitoringHackVaultName -ResourceGroupName $rg.ResourceGroupName -Location $rg.Location -EnabledForTemplateDeployment
 
-#Step 4: Add password as a secret.  Note:this will prompt you for a user and password.  User should be vmadmin and a password that meet the azure pwd police like P@ssw0rd123!!
+#Step 4: Add password as a secret.  Note:this will prompt you for a user and password.  User should be vmadmin and a password that meet the azure pwd police like P@ssw0rd2018!
 Set-AzureKeyVaultSecret -VaultName $MonitoringHackVaultName -Name "VMPassword" -SecretValue (Get-Credential).Password
 
 #Step 5: Update azuredeploy.parameters.json file with your envPrefixName and Key Vault info example- /subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}
@@ -23,4 +23,4 @@ Get-AzureRmKeyVault -VaultName $MonitoringHackVaultName | Select-Object VaultNam
 #Step 6: Run deployment below after updating and SAVING the parameter file with your key vault info.  Make sure to update the paths to the json files or run the command from the same directory
 #Note: This will deploy VMs using B series VMs.  By default a subscription is limited to 10 cores of B Series per region.  You may have to request more cores or
 # choice another region if you run into quota errors on your deployment.  Also feel free to modify the ARM template to use a different VM Series.
-New-AzureRmResourceGroupDeployment -Name $MonitoringHackName -ResourceGroupName $MonitoringHackName -TemplateFile '.\VMSSazuredeploy.json' -TemplateParameterFile '.\azuredeploy.parameters.json'
+New-AzureRmResourceGroupDeployment -Name $MonitoringHackName -ResourceGroupName $MonitoringHackName -TemplateFile '.\VMSSazuredeploy.json' -TemplateParameterFile '.\azuredeploy.parameters.json'   
